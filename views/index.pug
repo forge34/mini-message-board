@@ -2,7 +2,10 @@ extends layout
 
 block content
   h1.title= title
+  
   div.container
+    button.msg-btn 
+        a(href="/new") New Message
     div.chat
       each val in messages 
         div.message
@@ -12,6 +15,5 @@ block content
           p.msg-text=val.text
 
 
-    button.msg-btn 
-      a(href="/new") New Message
+  
 

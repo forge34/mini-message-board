@@ -2,12 +2,12 @@ extends layout
 
 block content
     h1=title
-    form(action="/new", method="post")
+    form(action="/new", method="POST")
         div.msg-form
             label(for="username") Username
-            input(type="text")#username
+            input(type="text" name="username")#username
 
-            label(for="msg") Message
-            textarea(name="msg", cols="30", rows="10")#msg
+            label(for="messageBody") Message
+            textarea(name="messageBody", cols="30", rows="10")#msg
 
             button(type="submit").msg-btn Add message

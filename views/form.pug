@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1=title
+    form(action="/new", method="post")
+        div.msg-form
+            label(for="username") Username
+            input(type="text")#username
+
+            label(for="msg") Message
+            textarea(name="msg", cols="30", rows="10")#msg
+
+            button(type="submit").msg-btn Add message

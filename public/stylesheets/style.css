@@ -1,8 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: 20px;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
-  color: #00B7FF;
+    color: #00b7ff;
+}
+
+.user {
+    padding: 0.5em 0;
+}
+
+h1 {
+    align-self: center;
+}
+
+.chat {
+    margin-bottom: 0.75em;
+}
+
+.container {
+    margin: 5em;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    border-style: solid;
+    border-radius: 7px;
+    border-color: black;
+}
+
+.msg-btn {
+    margin-top: auto;
+    background-color: white;
+    padding: 0.3em 1em;
+    font-size: 1.25em;
+    align-self: self-start;
+    transition: background-color 0.5s ease-out 0.1s;
+}
+
+.msg-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.msg-btn:hover {
+    background-color: black;
+    color: white;
+    a {
+      color: white;
+    }
+}
+
+.msg-info {
+    display: flex;
+}
+
+.msg-info .date {
+    align-self: center;
+    margin-inline: 0.45em;
+}
+
+.msg-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: max-content;
+}
+
+.msg-form *{
+  margin: 0.35em 0.7em;
 }

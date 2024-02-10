@@ -1,34 +1,25 @@
 const express = require("express");
 const router = express.Router();
+const Messages = require("../models/message")
+const DB = require("../db")
 
-const messages = [
-    {
-        text: "Hi there!",
-        user: "Amando",
-        date: new Date(),
-    },
-    {
-        text: "Hello World!",
-        user: "Charles",
-        date: new Date(),
-    },
-];
+const find = async() => {
+    const msgs = await Messages.find().exec()
+    return msgs
+}
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-    res.render("index", { title: "Mini Messageboard", messages: messages });
+router.get("/", async function (req, res, next) {
+    const messages = await find()
+    res.render("index", { title: "Mini Messageboard", messages: messages});
 });
 
 router.get("/new", function (req, res, next) {
     res.render("form", { title: "Mini message board" });
 });
 
-router.post("/new", function (req, res, next) {
-    messages.push({
-        text: req.body.messageBody,
-        user: req.body.username,
-        date: new Date(),
-    });
+router.post("/new", async function (req, res, next) {
+    DB.addMessage(req.body.username,req.body.messageBody)
     return res.redirect("/");
 });
 
